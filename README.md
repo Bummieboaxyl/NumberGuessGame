@@ -1,6 +1,5 @@
 
-```markdown
-# 🎮 NumberGuessGame
+## 🎮 NumberGuessGame
 
 A simple Java web application that allows users to guess a random number.  
 Built with **Servlets, JSP, and Maven**, and packaged as a `.war` file for deployment on a servlet container (e.g., Tomcat).
@@ -71,6 +70,5 @@ mvn test
 * JUnit 5
 
 ---
-
 
 
