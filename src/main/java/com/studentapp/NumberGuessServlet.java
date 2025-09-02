@@ -16,6 +16,12 @@ public class NumberGuessServlet extends HttpServlet {
         targetNumber = new Random().nextInt(100) + 1;
     }
 
+    // Added setter method for controlled testing
+    public void setTargetNumber(int number) {
+        this.targetNumber = number;
+
+    }
+    
     // Added getter method for debugging (optional)
     public int getTargetNumber() {
         return this.targetNumber;
