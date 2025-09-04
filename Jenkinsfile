@@ -7,8 +7,7 @@ pipeline {
     }
 
     environment {
-        DOCKER_USER = credentials('dockerhub-username') // DockerHub username
-        DOCKER_PASS = credentials('dockerhub-password') // DockerHub password
+        DOCKER_CREDENTIALS = credentials('dockerhub-username-password') // Dockerhub credentials
         SONARQUBE = 'SonarQubeServer'                  // Jenkins SonarQube server name
         EMAIL_RECIPIENTS = 'bunmiolowoyeye20@gmail.com'
     }
@@ -16,14 +15,14 @@ pipeline {
     stages {
         stage('Checkout') {
             steps {
-                git branch: 'main', url: 'https://github.com/Bummieboaxyl/NumberGuessGame.git'
+                git branch: 'dev', url: 'https://github.com/Bummieboaxyl/NumberGuessGame.git'
             }
         }
 
         stage('Code Quality') {
             steps {
                 withSonarQubeEnv('SonarQubeServer') {  // matches SONARQUBE environment
-                    sh 'mvn clean verify sonar:sonar -Dsonar.projectKey=NumberGuessGame'
+                    sh 'mvn clean verify sonar:sonar -Dsonar.projectKey=NumberGuessGame -Dsonar.branch.name=dev'
                 }
             }
         }
@@ -54,9 +53,9 @@ pipeline {
         stage('Docker Build & Push') {
             steps {
                 sh '''
-                    echo $DOCKER_PASS | docker login -u $DOCKER_USER --password-stdin
-                    docker build -t $DOCKER_USER/number-guess-game:latest .
-                    docker push $DOCKER_USER/number-guess-game:latest
+                    echo $DOCKER_CREDENTIALS_PSW | docker login -u $DOCKER_CREDENTIALS_USR --password-stdin
+                    docker build -t $DOCKER_CREDENTIALS_USR/number-guess-game:latest .
+                    docker push $DOCKER_CREDENTIALS_USR/number-guess-game:latest
                 '''
             }
         }
