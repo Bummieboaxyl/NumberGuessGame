@@ -9,13 +9,13 @@ pipeline {
     environment {
         DOCKER_CREDENTIALS = credentials('dockerhub-username-password') // Dockerhub credentials
         SONARQUBE = 'SonarQubeServer'                  // Jenkins SonarQube server name
-        EMAIL_RECIPIENTS = 'bunmiolowoyeye20@gmail.com' // Email recipients
+        EMAIL_RECIPIENTS = 'bunmiolowoyeye20@gmail.com, amuzie.ebeyi@gmail.com, tombaebe@gmail.com' // Email recipients
     }
 
     stages {
         stage('Checkout') {
             steps {
-                git branch: 'dev', url: 'https://github.com/Bummieboaxyl/NumberGuessGame.git'
+                git branch: 'main', url: 'https://github.com/Bummieboaxyl/NumberGuessGame.git'
             }
         }
 
