@@ -22,7 +22,7 @@ pipeline {
         stage('Code Quality') {
             steps {
                 withSonarQubeEnv('SonarQubeServer') {  // matches SONARQUBE environment
-                    sh 'mvn clean verify sonar:sonar -Dsonar.projectKey=NumberGuessGame -Dsonar.branch.name=dev'
+                    sh 'mvn clean verify sonar:sonar -Dsonar.projectKey=NumberGuessGame'
                 }
             }
         }
