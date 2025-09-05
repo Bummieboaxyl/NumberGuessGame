@@ -65,7 +65,7 @@ pipeline {
                 sh '''
                     docker stop number-guess-game || true
                     docker rm number-guess-game || true
-                    docker run -d --name number-guess-game -p 8080:8080 $DOCKER_CREDENTIALS_USR/number-guess-game:latest
+                    docker run -d --name number-guess-game -p 9090:8080 $DOCKER_CREDENTIALS_USR/number-guess-game:latest
                 '''
             }
         }
