@@ -49,6 +49,9 @@
 
     <!-- Build Plugins -->
     <build>
+             
+        <finalName>NumberGuessGame</finalName>
+             
         <plugins>
             <!-- Compiler Plugin -->
             <plugin>

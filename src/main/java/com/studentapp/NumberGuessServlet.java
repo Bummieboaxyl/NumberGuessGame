@@ -16,18 +16,6 @@ public class NumberGuessServlet extends HttpServlet {
         targetNumber = new Random().nextInt(100) + 1;
     }
 
-    // Added setter method for controlled testing
-    public void setTargetNumber(int number) {
-        this.targetNumber = number;
-
-    }
-    
-    // Added getter method for debugging (optional)
-    public int getTargetNumber() {
-        return this.targetNumber;
-
-    }
-
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html");
@@ -57,6 +45,10 @@ public class NumberGuessServlet extends HttpServlet {
             out.println("<h2>Invalid input. Please enter a valid number.</h2>");
         }
         out.println("<a href='guess'>Play Again</a>");
+    }
+    
+    public int getTargetNumber() {
+        return targetNumber;
     }
 }
 

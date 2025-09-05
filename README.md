@@ -23,34 +23,51 @@ NumberGuessGame/
 
 ````
 
----
+
+### Features
+✅ Random number guessing game  
+✅ Fully automated CI/CD pipeline    
+✅ SonarQube integration for code quality analysis
+✅ Docker & Tomcat for containerization and image management
 
 ## 🚀 Getting Started
 
-### 1. Clone the Repository
+### Prerequisites  
+Java 17, Maven, Docker, Jenkins, SonarQube, DockerHub
+
+### Clone the Repository
 ```bash
 git clone https://github.com/your-username/NumberGuessGame.git
 cd NumberGuessGame
-````
-
-### 2. Build the Project
-
-```bash
-mvn clean install
 ```
 
-### 3. Run Tests
+###  Build the Project
 
 ```bash
-mvn test
+mvn clean package
 ```
 
-### 4. Deploy to Tomcat/Jetty
+### Deploy the generated WAR file to Tomcat.
 
-Copy the generated `.war` file from `target/` to your servlet container’s `webapps/` folder.
+Run the CI/CD Pipeline in Jenkins
+Push changes to GitHub → Jenkins automatically triggers build & deployment.
+
+### Access the Application
+After deployment, open                 
+*http://<Server-IP:9090/NumberGuessGame*
+
+### CI/CD Pipeline Workflow
+Code push to GitHub → Jenkins triggers build
+Maven compiles, tests, and packages the app
+SonarQube scans for code quality
+Docker builds an image and pushes it to DockerHub. WAR file is deployed to Tomcat
+
+
+### Deploy to Tomcat
+
+The generated WAR file from target/ is copied into the Tomcat Docker image as ROOT.war during the build, and Tomcat automatically deploys it when the container runs.
 
 ---
-
 ## 🧪 Testing
 
 Unit tests are written with **JUnit 5** and run automatically with:
@@ -63,7 +80,7 @@ mvn test
 
 ## ⚙️ Technologies
 
-* Java 11+
+* Java 17
 * Maven
 * Servlet API
 * JSP
