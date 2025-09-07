@@ -1,7 +1,7 @@
 
 ## 🎮 NumberGuessGame
 
-A simple Java web application that allows users to guess a random number.  
+A simple Java web application  allows users to guess a random number.  
 Built with **Servlets, JSP, and Maven**, and packaged as a `.war` file for deployment on a servlet container (e.g., Tomcat).
 
 ---
