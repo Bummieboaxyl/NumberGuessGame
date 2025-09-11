@@ -20,6 +20,8 @@ NumberGuessGame/
 │-- pom.xml
 │-- README.md
 │-- .gitignore
+|-- Jenkinsfile
+|-- Dockerfile
 
 ````
 
@@ -27,7 +29,7 @@ NumberGuessGame/
 ### Features
 ✅ Random number guessing game  
 ✅ Fully automated CI/CD pipeline    
-✅ SonarQube integration for code quality analysis
+✅ SonarQube integration for code quality analysis  
 ✅ Docker & Tomcat for containerization and image management
 
 ## 🚀 Getting Started
